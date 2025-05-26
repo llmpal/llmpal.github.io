@@ -7,11 +7,11 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://llmpal.github.io',
   integrations: [
       starlight({    
           plugins: [starlightThemeRapide()],
-          title: 'PromptR',
-          social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+          title: 'LLMPal',
           sidebar: [
               {
                   label: 'Prompts',
