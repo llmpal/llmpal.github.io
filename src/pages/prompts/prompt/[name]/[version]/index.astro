@@ -1,0 +1,27 @@
+---
+import { Card, Code, Icon } from "@astrojs/starlight/components";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { getCollection } from "astro:content";
+
+const { name, version } = Astro.params;
+export const prerender = false; // Not needed in 'server' mode
+const prompts = await getCollection('prompts');
+const prompt = prompts.filter(x=>x.data.name == name && x.data.version == version)[0];
+
+---
+<StarlightPage frontmatter={{ title: `${prompt.data.name} (${prompt.data.version})`  }}>
+<h6>
+    Author
+</h6>
+<p> {prompt.data.author}</p>
+
+<h6>
+    Description
+</h6>
+<p> {prompt.data.description}</p>
+<Card title="Chat Template">
+<Code code={prompt.data.system_prompts[0]} lang="js" title="System" wrap />
+
+</Card>
+
+</StarlightPage>

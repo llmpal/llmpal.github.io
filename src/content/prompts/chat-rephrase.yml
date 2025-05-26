@@ -1,0 +1,9 @@
+name: chat-rephrase
+author: langchain-ai
+description: Specalized prompts for rephrase the follow up question to be a standalone question.
+version: 1.0.0 
+system_prompts: ["Chat History:
+{chat_history}
+Follow Up Input: {question}
+Standalone Question:"]
+inputs: ["chat_history", "question"]
